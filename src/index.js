@@ -1,0 +1,18 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
+import { ExchangeRate } from "./components/ExchangeRate";
+import {
+  getInitialRates,
+} from "./store/rates.js";
+import "./style.css";
+
+store.dispatch(getInitialRates);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ExchangeRate />
+  </Provider>,
+  document.getElementById("root")
+);
